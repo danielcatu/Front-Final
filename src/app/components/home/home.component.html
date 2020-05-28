@@ -1,1 +1,41 @@
-<p>home works!</p>
+<div onload="clear()" class="bg">
+    <nav class="navbar navbar-light bg-light mb-4" style="height: max-content;">
+        <a class="navbar-brand" style="display: inline-flex;">
+            <img src="../../assets/img/gas-natural.svg" width="60" height="60" class="d-inline-block" alt="">
+            <h2 class="pt-2" style="margin-left: 10%;">Caribean Gas</h2>
+        </a>
+    </nav>
+    <div class="card shadow-lg bg-white" id="cardall">
+        <div class="card-header">
+            Aptitudes Test
+        </div>
+        <div class="card-body text-center">
+            <img src="../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
+                style="transform: rotate(90deg);">
+            <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <img src="../../assets/img/usuario.svg" width="20" height="20" class="d-inline-block" alt="">
+                    </span>
+                </div>
+                <input type="email" class="form-control" id="mail" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1" #userEmail required>
+            </div>
+            <div id="disap" class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <img src="../../assets/img/bloquear.svg" width="20" height="20" class="d-inline-block" alt="">
+                    </span>
+                </div>
+                <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password"
+                    aria-describedby="basic-addon1" #userPassword required>
+            </div>
+            <div class="row">
+                <div class="col"><a href="signup.html">SingUp</a></div>
+                <div id="disap2" class="col"><a (click)="authService.SignIn(userEmail.value, userPassword.value)" class="btn btn-dark text-white">SingIn</a></div>
+                <div class="col"><a href="#" onclick="Recover()" style="margin-left: 10%;">Reset Password</a></div>
+            </div>
+        </div>
+    </div>
+</div>
