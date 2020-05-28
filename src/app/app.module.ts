@@ -13,8 +13,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { AuthService } from "./services/auth.service";
+import { SignupComponent } from './components/signup/signup.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SignupComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
