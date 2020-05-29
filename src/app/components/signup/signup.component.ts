@@ -4,28 +4,20 @@ import { CompanyService } from '../../services/company.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.sass']
+  styleUrls: ['./signup.component.sass'],
 })
 export class SignupComponent implements OnInit {
   corporationObj: string;
-  constructor(private companyService:CompanyService) { }
+  constructor(private companyService: CompanyService) {}
 
-  ngOnInit(): void {
-  }
-  productList:any[];
+  ngOnInit(): void {}
+  productList: any[];
 
-  async signup(palabra:string){
-    console.log(palabra);
+  signup(palabra: string) {
+    console.log(this.companyService.getCompany().then(solve=>{
+      console.log(solve)
+    }));
 
     // console.log(await this.companyService.getCompany());
-    console.log(this.companyService.getCompany().snapshotChanges().forEach(item => {
-      this.productList = [];
-        item.forEach(element => {
-          let x = element.payload.toJSON();
-          x["$key"] = element.key;
-          console.log(x);
-        });
-    }));
   }
-
 }
