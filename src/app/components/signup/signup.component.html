@@ -15,48 +15,48 @@
             <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
             <div class="overflow-auto" style="max-height: 40vh;">
                 <div class="input-group mb-4">
-                    <input type="text" id="name" class="form-control" placeholder="Name" aria-label="Name"
-                        aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Name" aria-label="Name"
+                        aria-describedby="basic-addon1" #companyName>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" id="doctype">
+                    <select class="form-control" #companyDoctype>
                         <option>Cedula</option>
                         <option>Numero Unico</option>
                         <option>Pasaporte</option>
                         <option>Cedula de Extranjeria</option>
-                    </select>
+                    </select> 
                 </div>
                 <div class="input-group mb-4">
-                    <input type="number" id="dni" class="form-control" placeholder="DNI" aria-label="Password"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="DNI" aria-label="Password"
+                        aria-describedby="basic-addon1" #companyDni>
                 </div>
                 <div class="input-group mb-4">
-                    <input type="Text" id="cimage" class="form-control" placeholder="Image URL" aria-label="Password"
-                        aria-describedby="basic-addon1">
+                    <input type="Text" class="form-control" placeholder="Image URL" aria-label="Password"
+                        aria-describedby="basic-addon1" #companyCimage>
                 </div>
                 <div class="input-group mb-4">
-                    <input type="number" id="cname" class="form-control" placeholder="Compañia" aria-label="Password"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="Compañia" aria-label="Password"
+                        aria-describedby="basic-addon1" #companyCname>
                 </div>
                 <!-- <div class="input-group mb-4">
                         <input type="text" id="cname" class="form-control" placeholder="Compañia" aria-label="Password"
                             aria-describedby="basic-addon1">
                     </div> -->
                 <div class="input-group mb-4">
-                    <input type="number" id="tel" class="form-control" placeholder="telefono" aria-label="Password"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="telefono" aria-label="Password"
+                        aria-describedby="basic-addon1" #companyTel>
                 </div>
                 <div class="input-group mb-4">
-                    <input type="email" id="mail" class="form-control" placeholder="email" aria-label="Password"
-                        aria-describedby="basic-addon1">
+                    <input type="email" class="form-control" placeholder="email" aria-label="Password"
+                        aria-describedby="basic-addon1" #companyEmail>
                 </div>
                 <div class="input-group mb-4">
-                    <input type="password" id="password" class="form-control" placeholder="Password"
-                        aria-label="Password" aria-describedby="basic-addon1">
+                    <input type="password" class="form-control" placeholder="Password"
+                        aria-label="Password" aria-describedby="basic-addon1" #companyPassword>
                 </div>
 
             </div>
-            <a onclick="myFunction()" class="btn btn-dark text-white mt-4">SingUp</a>
+            <a (click)="signup(companyDoctype.value)" class="btn btn-dark text-white mt-4">SingUp</a>
         </div>
     </div>
 </div>
