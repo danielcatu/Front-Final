@@ -1,6 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
 
+
+import { User } from '../models/user';
+import { Company } from '../models/company';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root',
@@ -10,22 +14,21 @@ export class CompanyService {
   constructor(private firebase: AngularFireDatabase, public ngZone: NgZone) {
     this.companyList = this.firebase.list('Company');
   }
-
-  getCompany() {
-    var companyList: any[];
-    this.companyList = this.firebase.list('Company');
-    return new Promise<any>((resolve, reject) => {
-        this.companyList.snapshotChanges().subscribe((item) => {
-          companyList = [];
-          const orderPromises = item.map((element) => {
-            let x = element.payload.toJSON();
-            x['$key'] = element.key;
-            companyList.push(x);
-          });
-          Promise.all(orderPromises).then(() => {
-            resolve(companyList);
-          });
-        });
+  refCompany = (ref: String) => this.companyList = this.firebase.list('Company' + ref);
+  getCompany = async () => {
+    await this.companyList.snapshotChanges().subscribe((item) => {
+      item.map((company) => {
+        let companys = company.payload.toJSON();
+        companys['$key'] = company.key;
+        return companys;
       });
+    });
+  };
+
+  setCompany = async (company:Company) => {
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
+    // this.refCompany("/" + user.uid);
+    console.log(user.uid)
+    await this.companyList.set("/"+user.uid,company)
   }
 }
