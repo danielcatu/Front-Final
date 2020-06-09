@@ -19,18 +19,18 @@
   <div class="col text-right">
     <a
       class="btn btn-primary text-white"
-      onclick=""
+      (click)=authService.disableEmp(employee.$key)
       >Disable</a
     >
     <a
       class="btn btn-primary text-white"
-      onclick=""
+      (click)=authService.enableEmp(employee.$key)
       >Enable</a
     >
     <a class="btn btn-primary" href="signupem.html">Edit</a>
     <a
       class="btn btn-primary text-white"
-      onclick=""
+      (click)=authService.deleteEmpl(employee.$key)
       >Delete</a
     >
     <a class="btn btn-primary" href="test_r.html">Check Results</a>
