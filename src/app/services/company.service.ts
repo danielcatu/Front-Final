@@ -16,7 +16,7 @@ export class CompanyService {
   constructor(private firebase: AngularFireDatabase, public ngZone: NgZone) {
     this.companyList = this.firebase.list('Company');
   }
-  refCompany = (ref: String, fun: QueryFn) => this.companyList = this.firebase.list(ref + "", fun);
+
   getCompany = async () => {
     await this.companyList.snapshotChanges().subscribe((item) => {
       item.map((company) => {
@@ -27,11 +27,10 @@ export class CompanyService {
     });
   };
 
-  setCompany = async (company: Company) => {
+  setCompany = (company: Company) => {
     let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     // this.refCompany("/" + user.uid);
-    console.log(user.uid)
-    await this.companyList.set("/" + user.uid, company)
+    return this.companyList.set("/" + user.uid, company)
   }
 
   getEmployees = () => {

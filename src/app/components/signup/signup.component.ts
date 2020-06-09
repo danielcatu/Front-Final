@@ -26,9 +26,10 @@ export class SignupComponent implements OnInit {
   ) {
     console.log(email)
     this.authService.SignUp(email, password).then(() => {
-      let company = new Company(name, doctype, dni, cimage, cname, tel)
+      let company = new Company(name, doctype, dni, cimage, cname, tel);
+
       this.companyService.setCompany(company).then(() => {
-        window.alert('Login');
+        //redirect
       })
     })
     // console.log(await this.companyService.getCompany());

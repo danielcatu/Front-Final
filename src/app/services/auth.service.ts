@@ -55,13 +55,12 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        window.alert('Creado');
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         // this.SendVerificationMail();
         // this.SetUserData(result.user);
-        this.SignIn(email, password).then(() => {
-          this.afAuth.auth.onAuthStateChanged((user) => {
+        return this.SignIn(email, password).then(() => {
+          return this.afAuth.auth.onAuthStateChanged((user) => {
             this.SetUserData(user);
           });
         });
