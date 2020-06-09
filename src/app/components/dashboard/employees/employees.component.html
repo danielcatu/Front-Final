@@ -1,0 +1,38 @@
+<div
+  class="row align-items-center border border-secondary shadow-sm p-3 mb-4 bg-white rounded"
+  *ngFor="let employee of employees; let i = index"
+>
+  <div class="col-md-1">
+    <a id="basic-addon1">
+      <img
+        style="height: 50px; width: 50px; border-radius: 90px 90px 90px 90px;"
+        src='{{employee.image}}'
+        width="40"
+        height="40"
+        class="d-inline-block"
+      />
+    </a>
+  </div>
+  <div class="col-md-5">
+    <h3>{{employee.name}}</h3>
+  </div>
+  <div class="col text-right">
+    <a
+      class="btn btn-primary text-white"
+      onclick=""
+      >Disable</a
+    >
+    <a
+      class="btn btn-primary text-white"
+      onclick=""
+      >Enable</a
+    >
+    <a class="btn btn-primary" href="signupem.html">Edit</a>
+    <a
+      class="btn btn-primary text-white"
+      onclick=""
+      >Delete</a
+    >
+    <a class="btn btn-primary" href="test_r.html">Check Results</a>
+  </div>
+</div>

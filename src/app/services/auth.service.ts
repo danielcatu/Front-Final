@@ -55,7 +55,7 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-window.alert('Creado');
+        window.alert('Creado');
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         // this.SendVerificationMail();

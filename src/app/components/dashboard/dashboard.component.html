@@ -1,0 +1,38 @@
+<div class="container bg">
+    <div class="callout" id="cardmsg">
+        <div class="callout-header">Messages</div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        <div class="callout-container" id="msg">
+
+        </div>
+    </div>
+    <div class="row pt-3 pb-4">
+        <div class="col">
+            <h1 id="number">Employees</h1>
+        </div>
+        <div class="col text-right ">
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <a class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample" style="text-align: start;">
+            Profile Info
+        </a>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body" id="profile">
+
+            </div>
+        </div>
+        <div id="list" class="container-fluid mt-4 overflow-auto">
+           <app-employees></app-employees>
+        </div>
+        <div class="row pt-1 pb-4">
+            <div class="col text-right ">
+                <a href="preguntas.html" class="btn btn-primary" role="button">New Test</a>
+                <a href="signupem.html" class="btn btn-primary" role="button">New Employee</a>
+                <a class="btn btn-primary text-white" onclick="myFunction()" role="button">Logou</a>
+            </div>
+        </div>
+    </div>
+</div>

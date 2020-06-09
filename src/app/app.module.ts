@@ -14,8 +14,10 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AuthService } from "./services/auth.service";
 import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EmployeesComponent } from './components/dashboard/employees/employees.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignupComponent],
+  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
