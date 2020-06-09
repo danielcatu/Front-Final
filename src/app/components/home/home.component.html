@@ -1,35 +1,42 @@
-<div onload="clear()" class="bg">
-    <div class="card shadow-lg bg-white" id="cardall">
-        <div class="card-header">
-            Aptitudes Test
-        </div>
-        <div class="card-body text-center">
-            <img src="../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
-                style="transform: rotate(90deg);">
-            <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
-            <div class="input-group mb-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                        <img src="../../assets/img/usuario.svg" width="20" height="20" class="d-inline-block" alt="">
-                    </span>
-                </div>
-                <input type="email" class="form-control" id="mail" placeholder="Username" aria-label="Username"
-                    aria-describedby="basic-addon1" #userEmail required>
+<div onload="clear()" class="bg row col-12">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="center-content">
+        <div class="card  shadow-lg bg-white " id="cardall">
+            <div class="card-header text-center">
+                Aptitudes Test
             </div>
-            <div id="disap" class="input-group mb-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                        <img src="../../assets/img/bloquear.svg" width="20" height="20" class="d-inline-block" alt="">
-                    </span>
+            <div class="card-body text-center">
+                <img src="../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
+                    style="transform: rotate(90deg);">
+                <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <img src="../../assets/img/usuario.svg" width="20" height="20" class="d-inline-block" alt="">
+                        </span>
+                    </div>
+                    <input type="email" class="form-control" id="mail" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" #userEmail required>
                 </div>
-                <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password"
-                    aria-describedby="basic-addon1" #userPassword required>
-            </div>
-            <div class="row">
-                <div class="col"><a  routerLink="/signup">SingUp</a></div>
-                <div id="disap2" class="col"><a (click)="authService.SignIn(userEmail.value, userPassword.value)" class="btn btn-dark text-white">SingIn</a></div>
-                <div class="col"><a href="#" onclick="Recover()" style="margin-left: 10%;">Reset Password</a></div>
+                <div id="disap" class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <img src="../../assets/img/bloquear.svg" width="20" height="20" class="d-inline-block" alt="">
+                        </span>
+                    </div>
+                    <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password"
+                        aria-describedby="basic-addon1" #userPassword required>
+                </div>
+                <div class="row text-center">
+                    <div id="disap2" class="mb-4 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <a (click)="authService.SignIn(userEmail.value, userPassword.value)" class="col-12 btn btn-dark text-white">
+                            SingIn
+                        </a>
+                    </div>
+                    <div class="mb-4 col-12 col-md-6"><a  routerLink="/signup">SingUp</a></div>
+                    <div class="mb-4 col-12 col-md-6"><a href="#" onclick="Recover()" style="margin-left: 10%;">Reset Password</a></div>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>
