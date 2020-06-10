@@ -21,6 +21,8 @@ import { CreateEmployeeComponent } from './components/dashboard/create-employee/
 import { MessageComponent } from './components/dashboard/others/message/message.component';
 import { TestComponent } from './components/test/test.component';
 import { CreateQuestionComponent } from './components/dashboard/create-question/create-question.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent, CreateQuestionComponent],
   imports: [
@@ -30,6 +32,7 @@ import { CreateQuestionComponent } from './components/dashboard/create-question/
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

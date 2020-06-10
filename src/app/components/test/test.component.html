@@ -1,84 +1,106 @@
 <title>Gas Company!</title>
-  <body class="bg">
-    <div class="card mt-3 mb-3" id="cardall">
-      <div class="card-header">
-        Aptitudes Test
-      </div>
-      <div class="card-body">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-ride="carousel"
-          data-interval="0"
-          data-wrap="false"
-        >
-          <div class="carousel-inner text-justify" style="height: 60vh;">
-            <div class="carousel-item active" id="question0"><div class='container' style='margin-left:10%; width: 80%;'>
-              <h1>Question</h1>
-              <h3 class='mb-4'>
-              element.question
-              </h3>
-              <div class='container' style='margin-left:5%;'>
-              <div class='form-check mb-2'>
-              <input class='form-check-input' type='radio' name='exampleRadios' value='0'>
-              <label class='form-check-label' for='exampleRadios2'>element.panswer[0]</label>
-            </div>
-            <div class='form-check mb-2'>
-              <input class='form-check-input' type='radio' name='exampleRadios' value='1'>
-              <label class='form-check-label' for='exampleRadios2'>element.panswer[1]
-              </label>
-            </div>
-            <div class='form-check mb-2'>
-              <input class='form-check-input' type='radio' name='exampleRadios' value='2'>
-              <label class='form-check-label' for='exampleRadios2'>element.panswer[2]</label>
-            </div>
-            <div class='form-check mb-3'>
-              <input class='form-check-input' type='radio' name='exampleRadios' value='3'>
-              <label class='form-check-label' for='exampleRadios2'>element.panswer[3]
-              </label>
-            </div>
-          </div>
-        </div>
-        </div>
-            <div class="carousel-item" id="question1">
-            </div>
-            <div class="carousel-item" id="question2"></div>
-            <div class="carousel-item" id="question3"></div>
-            <div class="carousel-item" id="question4"></div>
-          </div>
-          <a
-            class="carousel-control-prev"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Previous Slide"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="prev"
-            style="width: 10%;"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Next Slide"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="next"
-            style="width: 10%;"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          <div class="row align-items-center">
-            </div>
-            <div class="col-sm-2 offset-sm-9">
-              <a class="btn btn-primary" onclick="getcheck()" role="button"
-                >Send Test</a
-              >
-            </div>
-          </div>
-        </div>
+<body class="bg">
+  <div class="card" id="cardall">
+    <div class="card-header">
+      Aptitudes Test
     </div>
+    <div class="card-body">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="0"
+        data-wrap="false"
+      >
+        <div class="carousel-inner text-justify" style="height: 60vh;">
+          <div *ngFor="let element of preguntas; let i = index" [className]="i==0?'carousel-item active':'carousel-item'">
+            <div class="container" style="margin-left: 10%; width: 80%;">
+              <h1>Question</h1>
+              <h3 class="mb-4">
+                {{element.question}}
+              </h3>
+              <div class="container" style="margin-left: 5%;">
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    value="0"
+                  />
+                  <label class="form-check-label" for="exampleRadios2"
+                    >{{element.panswer[0]}}</label
+                  >
+                </div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    value="1"
+                  />
+                  <label class="form-check-label" for="exampleRadios2"
+                    >{{element.panswer[1]}}
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    value="2"
+                  />
+                  <label class="form-check-label" for="exampleRadios2"
+                    >{{element.panswer[2]}}</label
+                  >
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exampleRadios"
+                    value="3"
+                  />
+                  <label class="form-check-label" for="exampleRadios2"
+                    >{{element.panswer[3]}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="Previous Slide"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+          style="width: 10%;"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="Next Slide"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+          style="width: 10%;"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        <div class="row align-items-center"></div>
+        <div class="col-sm-2 offset-sm-9">
+          <a class="btn btn-primary" onclick="getcheck()" role="button"
+            >Send Test</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

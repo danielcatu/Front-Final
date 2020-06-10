@@ -8,44 +8,96 @@
         <img src="/../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
           style="transform: rotate(90deg);" />
 
-        <div class="overflow-auto mb-4" style="max-height: 40vh;" #form>
-          <div *ngFor="let item of [0, 0, 0, 0, 0]; let i = index">
+      <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <section class="overflow-auto" style="max-height: 40vh;">
+          <div *ngFor="let pregunta of preguntas; let i = index">
             <div class="input-group mb-4">
-              <input type="text" class="form-control 1" placeholder="Pregunta {{i+1}}" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                type="text"
+                class="form-control 1"
+                [(ngModel)]="pregunta.question"
+                name="pregunta{{ i + 1 }}"
+                placeholder="Pregunta {{ i + 1 }}"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="text" class="form-control 1" placeholder="Opcion 1" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                type="text"
+                [(ngModel)]="pregunta.panswer[0]"
+                name="respuestaa{{ i + 1 }}"
+                class="form-control 1"
+                placeholder="Opcion 1"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="text" class="form-control 1" placeholder="Opcion 2" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                type="text"
+                name="respuestab{{ i + 1 }}"
+                [(ngModel)]="pregunta.panswer[1]"
+                class="form-control 1"
+                placeholder="Opcion 2"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="text" class="form-control 1" placeholder="Opcion 3" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                name="respuestac{{ i + 1 }}"
+                type="text"
+                [(ngModel)]="pregunta.panswer[2]"
+                class="form-control 1"
+                placeholder="Opcion 3"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="text" class="form-control 1" placeholder="Opcion 4" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                type="text"
+                name="respuestad{{ i + 1 }}"
+                [(ngModel)]="pregunta.panswer[3]"
+                class="form-control 1"
+                placeholder="Opcion 4"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="number" class="form-control 1" placeholder="Opcion correcta" aria-label="p1"
-                aria-describedby="basic-addon1" />
+              <input
+                type="number"
+                name="correcta{{ i + 1 }}"
+                [(ngModel)]="pregunta.answer"
+                class="form-control 1"
+                placeholder="Opcion correcta"
+                aria-label="p1"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <div class="input-group mb-4">
-              <input type="number" id="p4" class="form-control 1" placeholder="valor" aria-label="p5"
-                aria-describedby="basic-addon1" />
+              <input
+                type="number"
+                name="valor{{ i + 1 }}"
+                [(ngModel)]="pregunta.value"
+                id="p4"
+                class="form-control 1"
+                placeholder="valor"
+                aria-label="p5"
+                aria-describedby="basic-addon1"
+              />
             </div>
             <hr style="border-block-color: black;" />
           </div>
-        </div>
-        <div>
-        <a routerLink="/dashboard" class="btn btn-dark mr-1 mb-1 col-md-12 col-lg-5">Back</a>
-        <a (click)="onSubmit(form)" class="btn btn-dark mr-1 mb-1 col-md-12 col-lg-5 text-white">Create-Replace Test</a>
-      </div>
-      </div>
+        </section>
+
+        <a routerLink="/dashboard" class="btn btn-dark mt-4">Back</a>
+        <button type="submit" class="btn btn-dark mt-4 text-white">
+          Create-Replace Test
+        </button>
+      </form>
     </div>
   </div>
 </div>
