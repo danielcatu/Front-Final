@@ -13,23 +13,33 @@
         data-wrap="false"
       >
         <div class="carousel-inner text-justify" style="height: 60vh;">
-          <div *ngFor="let element of preguntas; let i = index" [className]="i==0?'carousel-item active':'carousel-item'">
+          <div
+            *ngFor="let element of preguntas; let i = index"
+            [className]="i == 0 ? 'carousel-item active' : 'carousel-item'"
+          >
             <div class="container" style="margin-left: 10%; width: 80%;">
-              <h1>Question</h1>
+              <h1>Question {{ i + 1 }}</h1>
               <h3 class="mb-4">
-                {{element.question}}
+                {{ element.question }}
               </h3>
-              <div class="container" style="margin-left: 5%;">
+              <form
+                name="myForm"
+                ng-controller="ExampleController"
+                class="container"
+                style="margin-left: 5%;"
+                ng-controller="ExampleController"
+              >
                 <div class="form-check mb-2">
                   <input
                     class="form-check-input"
                     type="radio"
                     name="exampleRadios"
                     value="0"
+                    [(ngModel)]="answer.answers[i]"
                   />
-                  <label class="form-check-label" for="exampleRadios2"
-                    >{{element.panswer[0]}}</label
-                  >
+                  <label class="form-check-label" for="exampleRadios2">{{
+                    element.panswer[0]
+                  }}</label>
                 </div>
                 <div class="form-check mb-2">
                   <input
@@ -37,9 +47,10 @@
                     type="radio"
                     name="exampleRadios"
                     value="1"
+                    [(ngModel)]="answer.answers[i]"
                   />
                   <label class="form-check-label" for="exampleRadios2"
-                    >{{element.panswer[1]}}
+                    >{{ element.panswer[1] }}
                   </label>
                 </div>
                 <div class="form-check mb-2">
@@ -48,10 +59,11 @@
                     type="radio"
                     name="exampleRadios"
                     value="2"
+                    [(ngModel)]="answer.answers[i]"
                   />
-                  <label class="form-check-label" for="exampleRadios2"
-                    >{{element.panswer[2]}}</label
-                  >
+                  <label class="form-check-label" for="exampleRadios2">{{
+                    element.panswer[2]
+                  }}</label>
                 </div>
                 <div class="form-check mb-3">
                   <input
@@ -59,12 +71,13 @@
                     type="radio"
                     name="exampleRadios"
                     value="3"
+                    [(ngModel)]="answer.answers[i]"
                   />
                   <label class="form-check-label" for="exampleRadios2"
-                    >{{element.panswer[3]}}
+                    >{{ element.panswer[3] }}
                   </label>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -96,7 +109,7 @@
         </a>
         <div class="row align-items-center"></div>
         <div class="col-sm-2 offset-sm-9">
-          <a class="btn btn-primary" onclick="getcheck()" role="button"
+          <a class="btn btn-primary" (click)="onSubmit()" role="button"
             >Send Test</a
           >
         </div>
