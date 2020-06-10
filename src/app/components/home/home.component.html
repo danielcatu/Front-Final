@@ -4,7 +4,7 @@
             <div class="card-header text-center">
                 Aptitudes Test
             </div>
-            <div class="card-body text-center">
+            <div class="card-body text-center" (keyup.enter)="SignIn(userEmail.value, userPassword.value)">
                 <img src="../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
                     style="transform: rotate(90deg);">
                 <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->

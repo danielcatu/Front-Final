@@ -20,8 +20,9 @@ import { ProfileInfoComponent } from './components/dashboard/profile-info/profil
 import { CreateEmployeeComponent } from './components/dashboard/create-employee/create-employee.component';
 import { MessageComponent } from './components/dashboard/others/message/message.component';
 import { TestComponent } from './components/test/test.component';
+import { CreateQuestionComponent } from './components/dashboard/create-question/create-question.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent],
+  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent, CreateQuestionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

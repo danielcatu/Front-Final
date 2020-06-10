@@ -18,7 +18,7 @@ export class CompanyService {
     this.companyList = this.firebase.list('Company');
   }
 
-  getCompany = async () :Promise<Company> => {
+  getCompany = async (): Promise<Company> => {
     let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     let result: Company;
     const ref = await this.fire.database().ref("Company/").once("value")
@@ -54,4 +54,34 @@ export class CompanyService {
     return this.firebase.list("Employee/", (ref) => ref.orderByChild("company").equalTo(user.uid));
   }
 
+  newEmployee(name: string, image: string, dir: string, email: string, password: string) {
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
+    const employee: Employee = {
+      company: user.uid,
+      dir: dir,
+      image: image,
+      name: name
+    }
+    const secondaryApp = require("firebase");
+    return secondaryApp
+      .auth()
+      .createUserWithEmailAndPassword(email, password).then(() => {
+        // autenticacion con firebase
+        secondaryApp.auth().onAuthStateChanged((user) => {
+          if (user) {
+            let suid = secondaryApp.auth().currentUser.uid;
+            this.fire
+              .database()
+              .ref("Employee/" + suid)
+              .set(employee)
+          }
+        });
+      })
+  }
+}
+interface Employee {
+  company: string,
+  dir: string,
+  image: string,
+  name: string
 }

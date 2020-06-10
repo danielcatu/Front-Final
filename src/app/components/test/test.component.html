@@ -1,17 +1,5 @@
-<body class="bg">
-    <nav class="navbar navbar-light bg-light mb-4" style="height: max-content;">
-      <a class="navbar-brand" style="display: inline-flex;">
-        <img
-          src="/img/gas-natural.svg"
-          width="60"
-          height="60"
-          class="d-inline-block"
-          alt=""
-        />
-        <h2 class="pt-2" style="margin-left: 10%;">Caribean Gas</h2>
-      </a>
-    </nav>
-
+<title>Gas Company!</title>
+  <body onload="list()" class="bg">
     <div class="card" id="cardall">
       <div class="card-header">
         Aptitudes Test
@@ -25,11 +13,35 @@
           data-wrap="false"
         >
           <div class="carousel-inner text-justify" style="height: 60vh;">
-            <div class="carousel-item active" id="question0">
-              <!-- <div class="spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span></div> -->
+            <div class="carousel-item active" id="question0"><div class='container' style='margin-left:10%; width: 80%;'>
+              <h1>Question</h1>
+              <h3 class='mb-4'>
+              element.question
+              </h3>
+              <div class='container' style='margin-left:5%;'>
+              <div class='form-check mb-2'>
+              <input class='form-check-input' type='radio' name='exampleRadios' value='0'>
+              <label class='form-check-label' for='exampleRadios2'>element.panswer[0]</label>
+            </div>
+            <div class='form-check mb-2'>
+              <input class='form-check-input' type='radio' name='exampleRadios' value='1'>
+              <label class='form-check-label' for='exampleRadios2'>element.panswer[1]
+              </label>
+            </div>
+            <div class='form-check mb-2'>
+              <input class='form-check-input' type='radio' name='exampleRadios' value='2'>
+              <label class='form-check-label' for='exampleRadios2'>element.panswer[2]</label>
+            </div>
+            <div class='form-check mb-3'>
+              <input class='form-check-input' type='radio' name='exampleRadios' value='3'>
+              <label class='form-check-label' for='exampleRadios2'>element.panswer[3]
+              </label>
+            </div>
           </div>
-            <div class="carousel-item" id="question1"></div>
+        </div>
+        </div>
+            <div class="carousel-item" id="question1">
+            </div>
             <div class="carousel-item" id="question2"></div>
             <div class="carousel-item" id="question3"></div>
             <div class="carousel-item" id="question4"></div>
@@ -61,17 +73,6 @@
             <span class="sr-only">Next</span>
           </a>
           <div class="row align-items-center">
-            <!-- <div class="col-sm-7" style="margin-left: 10.5%;">
-              <div class="progress">
-                <div
-                  class="progress-bar progress-bar-striped"
-                  role="progressbar"
-                  style="width: 25%;"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div> -->
             </div>
             <div class="col-sm-2 offset-sm-9">
               <a class="btn btn-primary" onclick="getcheck()" role="button"
@@ -80,5 +81,4 @@
             </div>
           </div>
         </div>
-      </div>
     </div>

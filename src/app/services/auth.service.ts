@@ -45,13 +45,13 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          window.alert('Login');
+          //window.alert('Login');
           // this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        throw new Error(error.message);
       });
   }
 
@@ -146,9 +146,9 @@ export class AuthService {
 
   // Sign out
   SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
+    this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['home']);
     });
   }
   //User manage
@@ -189,17 +189,4 @@ export class AuthService {
       .then();
   }
 
-  async isEmpl() {
-    var result = false;
-    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
-    var ref = await this.firebase.database().ref("Employee/").ref.once("value")
-      .then((results, err) => {
-        Object.entries(results.val()).forEach(element => {
-          if (element[0] == user.uid) {
-            result = true
-          }
-        });
-      });
-    return result;
-  }
 }

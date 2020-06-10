@@ -30,17 +30,17 @@
       </div>
       <div class="container  pb-1">
         <div class="row justify-content-center">
-          <a href="preguntas.html" class="btn btn-primary col-3 mr-1 mb-1" role="button"
+          <a routerLink="/crQuestion" class="btn btn-primary col-3 mr-1 mb-1" role="button"
             >New Test</a
           >
-          <a href="signupem.html" class="btn btn-primary  col-3 mr-1 mb-1" role="button"
+          <a routerLink="/employee" class="btn btn-primary  col-3 mr-1 mb-1" role="button"
             >New Employee</a
           >
           <a class="btn btn-primary text-white  col-3 mr-1 mb-1"
-            onclick="myFunction()"
-            role="button"
-            >Logout</a
-          >
+            (click)="authService.SignOut()"
+            role="button">
+            Logout
+            </a>
         </div>
       </div>
     </section>
