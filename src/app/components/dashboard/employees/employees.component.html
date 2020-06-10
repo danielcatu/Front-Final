@@ -2,21 +2,21 @@
   class="row align-items-center border border-secondary shadow-sm p-3 mb-4 bg-white rounded"
   *ngFor="let employee of employees; let i = index"
 >
-  <div class="col-md-1">
+  <div class="col-md-12 col-lg-1">
     <a id="basic-addon1">
       <img
         style="height: 50px; width: 50px; border-radius: 90px 90px 90px 90px;"
         src='{{employee.image}}'
         width="40"
         height="40"
-        class="d-inline-block"
+        class="mx-auto d-block"
       />
     </a>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-12 col-lg-4  text-center">
     <h3>{{employee.name}}</h3>
   </div>
-  <div class="col-7 text-right">
+  <div class="col-md-12 col-lg-7 text-md-center text-lg-right">
     <a
       class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.disableEmp(employee.$key)
@@ -33,6 +33,6 @@
       (click)=authService.deleteEmpl(employee.$key)
       >Delete</a
     >
-    <a class="btn btn-primary mr-1 mb-1" href="test_r.html">Check Results</a>
+    <a class="btn btn-primary mb-1 " href="test_r.html">Check Results</a>
   </div>
 </div>
