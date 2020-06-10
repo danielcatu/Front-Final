@@ -1,33 +1,37 @@
 <body class="bg">
-    <div class="card shadow-lg bg-white" id="cardall">
-        <div class="card-header">
-            Employee Register
-        </div>
-        <div class="card-body text-center">
-            <img src="/../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
-                style="transform: rotate(90deg);">
-            <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
-            <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="Name" aria-label="Name"
-                    #emplName>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" id="center-content">
+        <div class="card shadow-lg bg-white" id="cardall">
+            <div class="card-header">
+                Employee Register
             </div>
-            <div class="input-group mb-4">
-                <input type="Text" class="form-control" placeholder="Image URL" aria-label="Password"
-                    aria-describedby="basic-addon1" #emplImage>
+            <div class="card-body text-center">
+                <img src="/../../assets/img/valvula.svg" width="60" height="60" class="d-inline-block mb-4"
+                    style="transform: rotate(90deg);">
+                <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Name" aria-label="Name"
+                        #emplName>
+                </div>
+                <div class="input-group mb-4">
+                    <input type="Text" class="form-control" placeholder="Image URL" aria-label="Password"
+                        aria-describedby="basic-addon1" #emplImage>
+                </div>
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="dir" aria-label="dir"
+                        aria-describedby="basic-addon1" #emplDir>
+                </div>
+                <div class="input-group mb-4">
+                    <input type="email" class="form-control" placeholder="mail" aria-label="mail"
+                        aria-describedby="basic-addon1" #emplEmail>
+                </div>
+                <div class="input-group mb-4">
+                    <input type="password" class="form-control" placeholder="Password" aria-label="Password"
+                        aria-describedby="basic-addon1" #emplPassword>
+                </div>
+                <div>
+                    <a (click)="createEmpl(emplName.value,emplImage.value,emplDir.value,emplEmail.value,emplPassword.value)" class="btn btn-dark text-white mr-1 mb-1 col-md-12 col-lg-5" id="select">Registrar</a>
+                    <a routerLink="/dashboard" class="btn btn-dark mb-1 col-md-12 col-lg-5" >Volver</a>
+                </div>
             </div>
-            <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="dir" aria-label="dir"
-                    aria-describedby="basic-addon1" #emplDir>
-            </div>
-            <div class="input-group mb-4">
-                <input type="email" class="form-control" placeholder="mail" aria-label="mail"
-                    aria-describedby="basic-addon1" #emplEmail>
-            </div>
-            <div class="input-group mb-4">
-                <input type="password" class="form-control" placeholder="Password" aria-label="Password"
-                    aria-describedby="basic-addon1" #emplPassword>
-            </div>
-            <a routerLink="/dashboard" class="btn btn-dark" >Volver</a>
-            <a (click)="createEmpl(emplName.value,emplImage.value,emplDir.value,emplEmail.value,emplPassword.value)" class="btn btn-dark text-white" id="select">Registrar Empleado</a>
         </div>
     </div>
