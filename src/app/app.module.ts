@@ -16,8 +16,12 @@ import { AuthService } from "./services/auth.service";
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeesComponent } from './components/dashboard/employees/employees.component';
+import { ProfileInfoComponent } from './components/dashboard/profile-info/profile-info.component';
+import { CreateEmployeeComponent } from './components/dashboard/create-employee/create-employee.component';
+import { MessageComponent } from './components/dashboard/others/message/message.component';
+import { TestComponent } from './components/test/test.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent],
+  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

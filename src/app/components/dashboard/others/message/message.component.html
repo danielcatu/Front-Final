@@ -1,0 +1,13 @@
+<section class="callout" id="cardmsg">
+  <div class="callout-header">Messages</div>
+  <span class="closebtn" onclick="this.parentElement.style.display='none';"
+    >×</span
+  >
+  <div class="callout-container" id="msg">
+    <div>
+      <p *ngFor="let employee of employees; let i = index">{{employee.name}}<br />
+        Hizo el test el
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,8 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
+
+import { AngularFireAuth } from '@angular/fire/auth';
+//models
 import { User } from '../models/user';
 import { auth } from 'firebase/app';
-import { functions } from 'firebase';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 import {
   AngularFirestore,
@@ -36,6 +37,7 @@ export class AuthService {
       }
     });
   }
+
 
   // Sign in with email/password
   SignIn(email, password) {
@@ -78,6 +80,11 @@ export class AuthService {
     return this.afAuth.auth.currentUser.sendEmailVerification().then(() => {
       this.router.navigate(['verify-email-address']);
     });
+  }
+
+  getCurrentUser(): User {
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
+    return user;
   }
 
   // Reset Forggot password
@@ -173,12 +180,26 @@ export class AuthService {
 
   }
 
-  updateEmployee(suid, company) {
+  updateEmpl(suid, company) {
     event.preventDefault();
     this.firebase
       .database()
       .ref("Employee/" + suid)
       .update(company)
       .then();
+  }
+
+  async isEmpl() {
+    var result = false;
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
+    var ref = await this.firebase.database().ref("Employee/").ref.once("value")
+      .then((results, err) => {
+        Object.entries(results.val()).forEach(element => {
+          if (element[0] == user.uid) {
+            result = true
+          }
+        });
+      });
+    return result;
   }
 }

@@ -7,14 +7,16 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./employees.component.sass']
 })
 export class EmployeesComponent implements OnInit {
-
-  constructor(private companyService: CompanyService,public authService: AuthService) { 
-    this.employees=[]
-  }
   employees: any[];
+
+  constructor(private companyService: CompanyService, public authService: AuthService) {
+    this.employees = []
+  }
+
   ngOnInit(): void {
     this.getEmployess();
   }
+
   getEmployess() {
     this.companyService.getEmployees().snapshotChanges().subscribe((item) => {
       let aux = item.map((company) => {
@@ -24,6 +26,6 @@ export class EmployeesComponent implements OnInit {
       })
     })
   }
-  
+
 }
 

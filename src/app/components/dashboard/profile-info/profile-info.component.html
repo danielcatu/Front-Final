@@ -1,0 +1,46 @@
+<div *ngIf="company!=undefined" class="row" >
+  <div class="col-md-4">
+    <div class="profile-img mt-3 text-center">
+      <img
+        style="height: 150px; width: 150px; border-radius: 90px 90px 90px 90px;"
+        src='{{company.cimage}}'
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="profile-head">
+      <h5>{{ company.name }}</h5>
+      <h6>Company Maganer</h6>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6"><label>DNI</label></div>
+      <div class="col-md-6">
+        <p>{{ company.dni }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6"><label>Company</label></div>
+      <div class="col-md-6">
+        <p>{{ company.cname }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6"><label>Email</label></div>
+      <div class="col-md-6">
+        <p>{{ currentUser.email }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6"><label>Phone</label></div>
+      <div class="col-md-6">
+        <p>{{ company.tel }}</p>
+      </div>
+    </div>
+  </div>
+</div>

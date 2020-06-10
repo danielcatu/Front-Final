@@ -1,38 +1,48 @@
-<div class="container bg">
-    <div class="callout" id="cardmsg">
-        <div class="callout-header">Messages</div>
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
-        <div class="callout-container" id="msg">
-
+<div class="bg">
+  <div class="container">
+ 
+    <app-message></app-message>
+    <section class="container-fluid">
+      <a
+        class="btn btn-secondary btn-lg btn-block pt-1 pb-1 mb-3"
+        data-toggle="collapse"
+        href="#collapseExample"
+        role="button"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+        style="text-align: start;"
+      >
+        Profile Info
+      </a>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body" id="profile">
+          <app-profile-info></app-profile-info>
         </div>
-    </div>
-    <div class="row pt-3 pb-4">
+      </div>
+      <section class="row  mb-3">
         <div class="col">
-            <h1 id="number">Employees</h1>
+          <h4 id="number">Employees</h4>
         </div>
-        <div class="col text-right ">
-
+        <div class="col text-right"></div>
+      </section>
+      <div id="list" class="container-fluid mt-4 overflow-auto">
+        <app-employees></app-employees>
+      </div>
+      <div class="container  pb-1">
+        <div class="row justify-content-center">
+          <a href="preguntas.html" class="btn btn-primary col-3 mr-1 mb-1" role="button"
+            >New Test</a
+          >
+          <a href="signupem.html" class="btn btn-primary  col-3 mr-1 mb-1" role="button"
+            >New Employee</a
+          >
+          <a class="btn btn-primary text-white  col-3 mr-1 mb-1"
+            onclick="myFunction()"
+            role="button"
+            >Logout</a
+          >
         </div>
-    </div>
-    <div class="container-fluid">
-        <a class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button"
-            aria-expanded="false" aria-controls="collapseExample" style="text-align: start;">
-            Profile Info
-        </a>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body" id="profile">
-
-            </div>
-        </div>
-        <div id="list" class="container-fluid mt-4 overflow-auto">
-           <app-employees></app-employees>
-        </div>
-        <div class="row pt-1 pb-4">
-            <div class="col text-right ">
-                <a href="preguntas.html" class="btn btn-primary" role="button">New Test</a>
-                <a href="signupem.html" class="btn btn-primary" role="button">New Employee</a>
-                <a class="btn btn-primary text-white" onclick="myFunction()" role="button">Logou</a>
-            </div>
-        </div>
-    </div>
+      </div>
+    </section>
+  </div>
 </div>

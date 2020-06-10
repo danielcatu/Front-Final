@@ -13,26 +13,26 @@
       />
     </a>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-4">
     <h3>{{employee.name}}</h3>
   </div>
-  <div class="col text-right">
+  <div class="col-7 text-right">
     <a
-      class="btn btn-primary text-white"
+      class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.disableEmp(employee.$key)
       >Disable</a
     >
     <a
-      class="btn btn-primary text-white"
+      class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.enableEmp(employee.$key)
       >Enable</a
     >
-    <a class="btn btn-primary" href="signupem.html">Edit</a>
+    <a class="btn btn-primary mr-1 mb-1" href="signupem.html">Edit</a>
     <a
-      class="btn btn-primary text-white"
+      class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.deleteEmpl(employee.$key)
       >Delete</a
     >
-    <a class="btn btn-primary" href="test_r.html">Check Results</a>
+    <a class="btn btn-primary mr-1 mb-1" href="test_r.html">Check Results</a>
   </div>
 </div>
