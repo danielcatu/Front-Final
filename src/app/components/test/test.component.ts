@@ -10,7 +10,7 @@ export class TestComponent implements OnInit {
   constructor(private test: TestService) { }
 
   ngOnInit(): void {
-    console.log(this.test.getQuestion());
+    this.test.getQuestion();
   }
 
 }

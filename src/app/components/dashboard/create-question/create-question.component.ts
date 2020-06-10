@@ -12,4 +12,9 @@ export class CreateQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(event: any) {
+    console.log("hola")
+    console.log(event.c)
+  }
+
 }

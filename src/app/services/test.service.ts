@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+
+import { AngularFireDatabase} from 'angularfire2/database';
 //models
 import { User } from '../models/user';
 
@@ -6,8 +8,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class TestService {
-  firebase = require("this.firebase");
-  constructor() { }
+  firebase = require("firebase");
+  constructor(private fire: AngularFireDatabase) {
+  }
 
   addQuestion(question) {
     let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
@@ -35,6 +38,7 @@ export class TestService {
       .ref("Company/" + company)
       .once("value");
     questions = questions.val()["questions"];
+    console.log(questions);
     return questions;
   }
 
@@ -87,5 +91,5 @@ export class TestService {
     return company
       .orderByChild("questionary/date")
       .on("child_changed", message);
-  } 
+  }
 }

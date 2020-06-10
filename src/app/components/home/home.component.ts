@@ -12,21 +12,22 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { }
 
-    SignIn(email, password) {
-    this.authService.SignIn(email, password).then(async () => {
+    async SignIn(email, password) {
+    await this.authService.SignIn(email, password).then(async () => {
       await this.homeService.isEmployee().then(employee => {
         console.log(employee)
         if (employee) {
           console.log('nope')
-          //this._router.navigate(['/test']);Alo?
+          this._router.navigate(['/test']);
         } else {
           console.log('yeih')
           this._router.navigate(['/dashboard']);
         }
       });
-    }).catch(error=>{
+    })
+    .catch(error=>{
       console.log(error)
-    });
+    })
   }
 }
 
