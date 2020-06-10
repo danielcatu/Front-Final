@@ -50,7 +50,17 @@
                 </div>
 
             </div>
-            <a (click)="signup(companyName.value,companyDoctype.value,companyDni.value,companyCimage.value,companyCname.value,companyTel.value,companyEmail.value,companyPassword.value)" class="btn btn-dark text-white mt-4">SingUp</a>
+            <div>
+                <a 
+                (click)="signup(companyName.value,companyDoctype.value,companyDni.value,companyCimage.value,companyCname.value,companyTel.value,companyEmail.value,companyPassword.value)" 
+                class="btn btn-dark text-white mt-1 col-12">
+                SingUp
+                </a>
+                <a (click)="this.router.navigate(['/home'])"
+                class="btn btn-dark text-white mt-1 col-12">
+                Back
+                </a>
+            </div>
         </div>
     </div>
 </div>

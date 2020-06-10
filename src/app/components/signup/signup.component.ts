@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
 import { AuthService } from '../../services/auth.service';
 import { Company } from 'src/app/models/company';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +10,7 @@ import { Company } from 'src/app/models/company';
 })
 export class SignupComponent implements OnInit {
   corporationObj: string;
-  constructor(private companyService: CompanyService, private authService: AuthService) { }
+  constructor(private companyService: CompanyService, private authService: AuthService,public router: Router) { }
 
   ngOnInit(): void { }
   productList: any[];

@@ -9,9 +9,8 @@ export class HomeService {
   firebase = require("firebase");
   constructor() { }
 
-  async isEmployee() {
+  async isEmployee(user: User) {
     var result = false;
-    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     var ref = await this.firebase.database().ref("Employee/").ref.once("value")
       .then((results, err) => {
         Object.entries(results.val()).forEach(element => {
@@ -22,5 +21,5 @@ export class HomeService {
       });
     return result;
   }
-  
+
 }

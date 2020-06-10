@@ -9,27 +9,28 @@
                     style="transform: rotate(90deg);">
                 <!-- <h3 class="card-title mb-4">Caribean Gas</h3> -->
                 <div class="input-group mb-4">
-                    <input type="text" class="form-control" placeholder="Name" aria-label="Name"
-                        #emplName>
+                    <input type="text" class="form-control" placeholder="Name" aria-label="Name"  [(ngModel)]=Empl.name>
                 </div>
                 <div class="input-group mb-4">
                     <input type="Text" class="form-control" placeholder="Image URL" aria-label="Password"
-                        aria-describedby="basic-addon1" #emplImage>
+                        aria-describedby="basic-addon1" [(ngModel)]=Empl.image>
                 </div>
                 <div class="input-group mb-4">
                     <input type="text" class="form-control" placeholder="dir" aria-label="dir"
-                        aria-describedby="basic-addon1" #emplDir>
+                        aria-describedby="basic-addon1" [(ngModel)]=Empl.dir>
+                        
                 </div>
-                <div class="input-group mb-4">
+                <div [ngClass]="uid ? 'noDisplay':'input-group mb-4'">
                     <input type="email" class="form-control" placeholder="mail" aria-label="mail"
                         aria-describedby="basic-addon1" #emplEmail>
                 </div>
-                <div class="input-group mb-4">
+                <div [ngClass]="uid ? 'noDisplay':'input-group mb-4'">
                     <input type="password" class="form-control" placeholder="Password" aria-label="Password"
                         aria-describedby="basic-addon1" #emplPassword>
                 </div>
                 <div>
-                    <a (click)="createEmpl(emplName.value,emplImage.value,emplDir.value,emplEmail.value,emplPassword.value)" class="btn btn-dark text-white mr-1 mb-1 col-md-12 col-lg-5" id="select">Registrar</a>
+                    <a (click)="params(emplEmail.value,emplPassword.value)" class="btn btn-dark text-white mr-1 mb-1 col-md-12 col-lg-5" id="select">
+                        {{uid?"Update":"Registrar"}}</a>
                     <a routerLink="/dashboard" class="btn btn-dark mb-1 col-md-12 col-lg-5" >Volver</a>
                 </div>
             </div>

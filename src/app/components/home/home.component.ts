@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+//services
 import { HomeService } from '../../services/home.service';
+import { AuthService } from '../../services/auth.service';
+//modules
+import { User } from '../../models/user';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,22 +16,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { }
 
-    async SignIn(email, password) {
-    await this.authService.SignIn(email, password).then(async () => {
-      await this.homeService.isEmployee().then(employee => {
-        console.log(employee)
+  async SignIn(email, password) {
+    await this.authService.SignIn(email, password).then((user) => {
+      this.homeService.isEmployee(user as unknown as User).then(employee => {
         if (employee) {
-          console.log('nope')
           this._router.navigate(['/test']);
         } else {
-          console.log('yeih')
           this._router.navigate(['/dashboard']);
         }
       });
-    })
-    .catch(error=>{
-      console.log(error)
-    })
+    });
   }
 }
 

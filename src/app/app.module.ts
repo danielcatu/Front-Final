@@ -22,9 +22,11 @@ import { MessageComponent } from './components/dashboard/others/message/message.
 import { TestComponent } from './components/test/test.component';
 import { CreateQuestionComponent } from './components/dashboard/create-question/create-question.component';
 import { FormsModule } from '@angular/forms';
+import { ResultComponent } from './components/result/result.component';
+
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent, CreateQuestionComponent],
+  declarations: [AppComponent, HomeComponent, SignupComponent, DashboardComponent, EmployeesComponent, ProfileInfoComponent, CreateEmployeeComponent, MessageComponent, TestComponent, CreateQuestionComponent, ResultComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

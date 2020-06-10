@@ -54,6 +54,12 @@ export class CompanyService {
     return this.firebase.list("Employee/", (ref) => ref.orderByChild("company").equalTo(user.uid));
   }
 
+  getEmployee = (uid) => {
+    console.log("entro undefuke",uid)
+    console.log(uid)
+    return this.firebase.list("Employee/"+uid);
+  }
+
   newEmployee(name: string, image: string, dir: string, email: string, password: string) {
     let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     const employee: Employee = {

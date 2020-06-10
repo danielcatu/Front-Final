@@ -27,8 +27,6 @@ export class AuthService {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
-      console.log("USER ");
-      console.log(user.uid);
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -50,6 +48,7 @@ export class AuthService {
           //window.alert('Login');
           // this.router.navigate(['dashboard']);
         });
+        return (result.user)
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -183,12 +182,10 @@ export class AuthService {
   }
 
   updateEmpl(suid, company) {
-    event.preventDefault();
-    this.firebase
+    return this.firebase
       .database()
       .ref("Employee/" + suid)
       .update(company)
-      .then();
   }
 
 }
