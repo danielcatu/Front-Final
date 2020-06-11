@@ -20,22 +20,19 @@
     <a
       class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.disableEmp(employee.$key)
-      href="#"
       >Disable</a
     >
     <a
       class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.enableEmp(employee.$key)
-      href="#"
       >Enable</a
     >
     <a class="btn btn-primary mr-1 mb-1" routerLink="/employee/{{employee.$key}}" >Edit</a>
     <a
       class="btn btn-primary text-white mr-1 mb-1"
       (click)=authService.deleteEmpl(employee.$key)
-      href="#"
       >Delete</a
     >
-    <a class="btn btn-primary mb-1 " href="test_r.html">Check Results</a>
+    <a class="btn btn-primary mb-1 "  routerLink="/result/{{employee.$key}}">Check Results</a>
   </div>
 </div>

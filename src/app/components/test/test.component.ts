@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TestService } from '../../services/test.service';
 import { Router } from '@angular/router';
 import { User } from 'firebase';
+
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -27,8 +30,7 @@ export class TestComponent implements OnInit {
         localStorage.getItem('user')
       ) as unknown) as User;
       let uid = user.uid;
-
-      this._router.navigate(['/result', { queryParams: { uid: uid } }]);
+      this._router.navigate(['/result/'+uid,  ]);
     });
   }
   async calcGrades() {
@@ -44,7 +46,12 @@ export class TestComponent implements OnInit {
         parseInt(this.answer.total) + parseInt(pregunta.value) / 5 + '';
     });
     this.testService.addAnswer(this.answer).then((ans) => {
-      window.alert('Enviado Perfecto');
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text: 'Enviado Perfecto',
+        showConfirmButton: false,
+      })
     });
   }
 }

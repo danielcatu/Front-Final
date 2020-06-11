@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '../../../services/company.service';
 import { AuthService } from 'src/app/services/auth.service';
 
-
+//sweetAlert2
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -27,10 +28,17 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   createEmpl(email: string, password: string) {
+    // console.log(this.companyService.createUrs(email, password))
     this.companyService.newEmployee(this.Empl.name, this.Empl.image, this.Empl.dir, email, password).then(() => {
-      window.alert("creado con exito")
-    });
-  }
+      //sweetAlert2
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text:'creado con exito',
+        showConfirmButton: false,
+      });
+  })
+}
 
   getEmpl() {
     this.companyService.getEmployee(this.uid).snapshotChanges().subscribe((item) => {
@@ -43,7 +51,11 @@ export class CreateEmployeeComponent implements OnInit {
   }
   updateEmpl() {
     this._authService.updateEmpl(this.uid, this.Empl).then(()=>{
-      window.alert("Usuario actualizado")
+      Swal.fire({
+        icon: 'success',
+        title: 'Usuario actualizado',
+        showConfirmButton: false,
+      });
     })
   }
 

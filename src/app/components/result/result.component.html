@@ -1,33 +1,51 @@
 <div onload="clear()" class="bg row col-12">
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<div class="card mt-3 mb-3" id="cardall">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <div class="card mt-3 mb-3" id="cardall">
     <div class="card-header">
-        Aptitudes Test
+      Aptitudes Test
     </div>
-    <div class="card-body ">
-        <div class="row mb-3">
-            <div class="col-12">
-                <h1>Test Results</h1>
-                    <!---<h3>{{user.name | async }} </h3>!--->
-            </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h1>Test Results</h1>
+          <!---<h3>{{user.name | async }} </h3>!--->
         </div>
-        <div class="container">
-            <!--- !-->
-
-            <div class="row">
-                <div id="chart">
-                </div>
-                <div id="grade" class="col-12 text-right ">
-
-                </div>
-                <div class="col-md-12 text-center ">
-                    
-                    <a class="btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3"  onclick="" id="deltest"  role="button">Delete Test</a>
-                    <a class="btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3"  onclick="" id="endtest"  role="button">End Test</a>
-                    <a class="btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3"  onclick=""  id="back" role="button">Back</a>
-                </div>
-            </div>
+      </div>
+      <div class="container">
+        <!--- !-->
+        <div class="row justify-content-center">
+          <h1>{{ message }}</h1>
         </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a
+              [ngClass]="
+                isEmployee
+                  ? 'btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3'
+                  : 'noDisplay'
+              "
+              routerLink="/"
+              role="button"
+              >End Test</a
+            >
+            <div [ngClass]="isEmployee ? 'noDisplay' : ''">
+              <a
+                class="btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3"
+                (click)="deteleTest()"
+                role="button"
+                >Delete Test</a
+              >
+              <a
+                class="btn btn-primary text-white mr-3 mt-3 col-sm-12 col-md-3"
+                routerLink="/dashboard"
+                id="back"
+                role="button"
+                >Back</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>

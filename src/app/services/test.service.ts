@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 //models
 import { User } from '../models/user';
 
@@ -52,11 +52,13 @@ export class TestService {
   }
 
   async getResults(uid) {
+    console.log('yes')
     var results = await this.firebase
       .database()
       .ref("Employee/" + uid + "/questionary")
       .once("value");
     results = results.val();
+    console.log(results)
     return results;
   }
 
@@ -67,16 +69,18 @@ export class TestService {
     results = results.remove();
   }
 
-  async gestTest(uid) {
-    // Find all dinosaurs whose height is exactly 25 meters.
-    var employee = [];
+  async gestTest() {
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     var company = await this.firebase.database().ref("Employee/");
     var answer = await company.orderByChild("questionary/date").once("value");
+    let employee = [];
     await answer.forEach((ans) => {
       if (ans.val().questionary) {
-        if (ans.val().company == uid) {
+        if (ans.val().company == user.uid) {
+          let date = ans.val().questionary.date;
           employee.push({
             key: ans.key,
+            strDate: new Date(date).toLocaleString(),
             ...ans.val(),
           });
         }
@@ -85,11 +89,12 @@ export class TestService {
     return employee;
   }
 
-  async onTest(uid, message) {
+  async onTest(funt) {
+    let user: User = JSON.parse(localStorage.getItem('user')) as unknown as User;
     // Find all dinosaurs whose height is exactly 25 meters.
     var company = await this.firebase.database().ref("Employee/");
     return company
       .orderByChild("questionary/date")
-      .on("child_changed", message);
+      .on("value", (results) => funt(results, user.uid));
   }
 }

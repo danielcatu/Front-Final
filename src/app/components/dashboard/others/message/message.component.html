@@ -1,12 +1,12 @@
-<section class="callout" id="cardmsg">
+<section [ngClass]="close ? 'callout noDisplay':'callout'" class="callout" id="cardmsg">
   <div class="callout-header">Messages</div>
-  <span class="closebtn" onclick="this.parentElement.style.display='none';"
+  <span class="closebtn" (click)="changeClose()"
     >×</span
   >
   <div class="callout-container" id="msg">
     <div>
       <p *ngFor="let employee of employees; let i = index">{{employee.name}}<br />
-        Hizo el test el test a las 
+        Hizo el test el test a las {{employee.strDate}}
       </p>
     </div>
   </div>

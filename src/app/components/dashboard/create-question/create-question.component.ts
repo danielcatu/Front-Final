@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from 'src/app/services/test.service';
 
+//sweetAlert2
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-create-question',
   templateUrl: './create-question.component.html',
@@ -18,7 +21,20 @@ export class CreateQuestionComponent implements OnInit {
 
   onSubmit() {
     this.testService.addQuestion(this.preguntas).then(result => {
-      result ? window.alert('Ha sido creado con exito') : window.alert('Ha habido un error');
+      result ? 
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text: 'Ha sido creado con exito',
+        showConfirmButton: false,
+      })
+      :
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ha habido un error',
+        showConfirmButton: false,
+      })
     })
   }
 }

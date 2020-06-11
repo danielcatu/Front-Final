@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule as SecondApp } from 'angularfire2';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,8 +22,9 @@ import { CreateEmployeeComponent } from './components/dashboard/create-employee/
 import { MessageComponent } from './components/dashboard/others/message/message.component';
 import { TestComponent } from './components/test/test.component';
 import { CreateQuestionComponent } from './components/dashboard/create-question/create-question.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultComponent } from './components/result/result.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 @NgModule({
@@ -34,9 +36,11 @@ import { ResultComponent } from './components/result/result.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgApexchartsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

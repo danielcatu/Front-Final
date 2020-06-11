@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'employee', component: CreateEmployeeComponent },
   { path: 'test', component: TestComponent },
   { path: 'crQuestion', component: CreateQuestionComponent },
-  { path: 'result', component: ResultComponent },
+  { path: 'result/:uid', component: ResultComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

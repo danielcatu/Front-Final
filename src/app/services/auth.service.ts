@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 //models
 import { User } from '../models/user';
 import { auth } from 'firebase/app';
+import Swal from 'sweetalert2'
 
 import {
   AngularFirestore,
@@ -72,7 +73,12 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
       });
   }
 
@@ -93,10 +99,20 @@ export class AuthService {
     return this.afAuth.auth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        Swal.fire({
+          icon: 'success',
+          title: 'Exito',
+          text: 'Password reset email sent, check your inbox.',
+          showConfirmButton: false,
+        })
       })
       .catch((error) => {
-        window.alert(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
       });
   }
 
@@ -122,7 +138,12 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
       });
   }
 
@@ -156,16 +177,42 @@ export class AuthService {
   disableEmp(uid) {
     const disableurs = this.firebase.functions().httpsCallable('disableUsr');
     disableurs({ uid: uid }).then(result => {
-      console.log(result);
-    });
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text: 'Usuario Deshabilitado',
+        showConfirmButton: false,
+      })
+    })
+      .catch(error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
+      });
 
   }
 
   enableEmp(uid) {
     const disableurs = this.firebase.functions().httpsCallable('enableUsr');
     disableurs({ uid: uid }).then(result => {
-      console.log(result);
-    });
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text: 'Usuario habilitado',
+        showConfirmButton: false,
+      })
+    })
+      .catch(error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
+      });
   }
 
   deleteEmpl(uid) {
@@ -174,9 +221,21 @@ export class AuthService {
       .ref("Employee/" + uid).set(null).then(() => {
         const deleteurs = this.firebase.functions().httpsCallable('deleteUsr');
         deleteurs({ uid: uid }).then(result => {
-          console.log(result);
-          // window.location = "list.html"
-        });
+          Swal.fire({
+            icon: 'success',
+            title: 'Exito',
+            text: 'Usuario Eliminado',
+            showConfirmButton: false,
+          })
+        })
+          .catch(error => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: error.message,
+              showConfirmButton: false,
+            })
+          });
       });
 
   }
@@ -186,6 +245,26 @@ export class AuthService {
       .database()
       .ref("Employee/" + suid)
       .update(company)
+  }
+
+  createUrs(email, password) {
+    const disableurs = this.firebase.functions().httpsCallable('createUsr');
+    disableurs({ email: email, password: password }).then(result => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito',
+        text: 'Usuario habilitado',
+        showConfirmButton: false,
+      })
+    })
+      .catch(error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+          showConfirmButton: false,
+        })
+      });
   }
 
 }
